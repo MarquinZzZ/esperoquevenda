@@ -40,6 +40,12 @@
     .msg {
       font-size: 1.2em;
     }
+    a {
+      color: #ff4c4c;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 15px;
+    }
   </style>
 
   <script>
@@ -53,19 +59,25 @@
     // Escolhe um bot aleatoriamente
     const botEscolhido = bots[Math.floor(Math.random() * bots.length)];
 
-    // Delay para garantir que o pixel carrega antes do redirect
-    setTimeout(() => {
-      // Dispara evento de purchase no pixel antes de redirecionar
-      if (typeof ttq !== "undefined") {
-        ttq.track("Purchase");
-      }
-      window.location.href = botEscolhido;
-    }, 1000); // 1 segundo
+    // Função de redirecionamento automático
+    function redirecionar() {
+      window.location.replace(botEscolhido);
+    }
+
+    // Redireciona após 1 segundo para garantir carregamento do pixel
+    setTimeout(redirecionar, 1000);
   </script>
 </head>
 <body>
   <div class="msg">
-    Redirecionando...
+    Redirecionando automaticamente para o bot...
+    <br>
+    <a id="fallback" href="#">Clique aqui se não for redirecionado</a>
   </div>
+
+  <script>
+    // Fallback: atualiza o link manual para garantir o start
+    document.getElementById("fallback").href = bots[Math.floor(Math.random() * bots.length)];
+  </script>
 </body>
 </html>
