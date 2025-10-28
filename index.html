@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="1;url=https://t.me/casadasninfasvipbot">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecionando...</title>
 
@@ -11,14 +10,14 @@
     !function (w, d, t) {
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
       ttq.methods=["page","track","identify","instances","debug","on","off","upload"];
-      ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.instance=function(t){var e=ttq._i[t]||[];for(var n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
-      ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";
-      ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date;
-      ttq._o=ttq._o||{},ttq._o[e]=n||{};
-      var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;
-      var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}; 
+      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]); 
+      ttq.instance=function(t){var e=ttq._i[t]||[];for(var n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e}; 
+      ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js"; 
+      ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date; 
+      ttq._o=ttq._o||{},ttq._o[e]=n||{}; 
+      var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t; 
+      var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)}; 
       ttq.load('D3TVR9RC77UFH42QT18G');
       ttq.page();
     }(window, document, 'ttq');
@@ -42,6 +41,27 @@
       font-size: 1.2em;
     }
   </style>
+
+  <script>
+    // Lista de bots possíveis (adicione ou remova conforme quiser)
+    const bots = [
+      "https://t.me/casadasninfasvipbot?start",
+      "https://t.me/casadasninfasvip2bot?start",
+      "https://t.me/casadasninfasvip3bot?start"
+    ];
+
+    // Escolhe um bot aleatoriamente
+    const botEscolhido = bots[Math.floor(Math.random() * bots.length)];
+
+    // Delay para garantir que o pixel carrega antes do redirect
+    setTimeout(() => {
+      // Dispara evento de purchase no pixel antes de redirecionar
+      if (typeof ttq !== "undefined") {
+        ttq.track("Purchase");
+      }
+      window.location.href = botEscolhido;
+    }, 1000); // 1 segundo
+  </script>
 </head>
 <body>
   <div class="msg">
